@@ -25,94 +25,147 @@ body{
     position:relative;
     width:100%;
     height:100%;
-    overflow:hidden;
+    transition:transform 2s ease, filter 2s ease;
 }
 
-/* DOLLS */
-.doll{
+/* LOTSO CARTOON */
+.lotso{
     position:absolute;
     bottom:80px;
-    font-size:90px;
-    transition:transform 2.5s ease;
+    width:120px;
+    height:160px;
+    transition:transform 3s ease;
 }
-.left{ left:8%; }
-.right{ right:8%; }
+
+/* BODY */
+.body{
+    width:120px;
+    height:120px;
+    background:#ff77a8;
+    border-radius:60px;
+    position:relative;
+}
+
+/* HEAD */
+.head{
+    width:90px;
+    height:90px;
+    background:#ff77a8;
+    border-radius:50%;
+    position:absolute;
+    top:-70px;
+    left:15px;
+}
+.eye{
+    width:12px;
+    height:12px;
+    background:#000;
+    border-radius:50%;
+    position:absolute;
+    top:35px;
+}
+.eye.left{ left:22px; }
+.eye.right{ right:22px; }
+.mouth{
+    width:30px;
+    height:12px;
+    border-bottom:4px solid #000;
+    border-radius:50%;
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* LEGS */
+.leg{
+    width:16px;
+    height:40px;
+    background:#ff77a8;
+    position:absolute;
+    bottom:-40px;
+    border-radius:10px;
+    animation:walk 0.6s infinite alternate;
+}
+.leg.left{ left:30px; }
+.leg.right{ right:30px; animation-delay:.3s; }
+
+/* WALK ANIMATION */
+@keyframes walk{
+    from{ transform:rotate(20deg); }
+    to{ transform:rotate(-20deg); }
+}
+
+/* POSITION */
+.left{ left:6%; }
+.right{ right:6%; }
+
+/* MOVE TO HUG */
+.move-left{ transform:translateX(40vw); }
+.move-right{ transform:translateX(-40vw); }
+
+/* HUG */
+.hug .leg{ animation:none; }
+.hug .mouth{ border-bottom:6px solid #000; }
 
 /* BUTTON */
 .btn{
     position:absolute;
-    bottom:200px;
+    bottom:260px;
     left:50%;
     transform:translateX(-50%);
-    padding:14px 36px;
-    border-radius:30px;
+    padding:14px 40px;
     background:white;
     color:#ff3b6f;
-    font-weight:800;
+    border-radius:30px;
+    font-weight:900;
     cursor:pointer;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-    transition:.3s;
-}
-.btn:hover{ transform:translateX(-50%) scale(1.05); }
-
-/* HUG STATE */
-.hug{
-    transform:translateX(35vw);
-}
-.hug-right{
-    transform:translateX(-35vw);
-}
-
-/* ZOOM OUT */
-.zoom-out{
-    transform:scale(0.8);
-    transition:transform 2s ease;
 }
 
 /* TEXT */
-.text-wrap{
+.text{
     position:absolute;
-    top:20%;
+    top:18%;
     width:100%;
     text-align:center;
     opacity:0;
     transform:translateY(20px);
     transition:1.5s;
 }
-.text-wrap.show{
+.text.show{
     opacity:1;
     transform:translateY(0);
 }
-.big-text{
+.big{
     font-size:48px;
     font-weight:900;
-    letter-spacing:2px;
-    text-shadow:0 0 20px rgba(255,255,255,.9);
 }
-.small-text{
-    margin-top:8px;
-    font-size:20px;
+.small{
     font-family:'Dancing Script',cursive;
-    opacity:.9;
+    font-size:22px;
 }
 
 /* FIREWORK */
 .firework{
     position:fixed;
-    font-size:22px;
-    pointer-events:none;
+    font-size:24px;
     animation:explode 2s ease-out forwards;
+    pointer-events:none;
 }
-
 @keyframes explode{
-    from{
-        transform:translate(0,0) scale(.8);
-        opacity:1;
-    }
+    from{opacity:1;}
     to{
         transform:translate(var(--x),var(--y)) scale(1.8);
         opacity:0;
     }
+}
+
+/* CREDIT */
+.credit{
+    position:fixed;
+    bottom:12px;
+    font-size:12px;
+    opacity:.6;
 }
 </style>
 </head>
@@ -120,71 +173,83 @@ body{
 <body>
 
 <div class="scene" id="scene">
-    <div class="doll left" id="left">🧸</div>
-    <div class="doll right" id="right">🧸</div>
+
+    <!-- LOTSO LEFT -->
+    <div class="lotso left" id="left">
+        <div class="head">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="body">
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+        </div>
+    </div>
+
+    <!-- LOTSO RIGHT -->
+    <div class="lotso right" id="right">
+        <div class="head">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="body">
+            <div class="leg left"></div>
+            <div class="leg right"></div>
+        </div>
+    </div>
 
     <div class="btn" id="btn">CLICK</div>
 
-    <div class="text-wrap" id="text">
-        <div class="big-text">MISS U SO MUCH ❤️</div>
-        <div class="small-text">syifa rahmadani</div>
+    <div class="text" id="text">
+        <div class="big">MISS U SO MUCH ❤️</div>
+        <div class="small">syifa rahmadani</div>
     </div>
 </div>
 
+<div class="credit">Dev by Tuan Muda R</div>
+
 <script>
+const btn = document.getElementById("btn");
 const left = document.getElementById("left");
 const right = document.getElementById("right");
-const btn = document.getElementById("btn");
 const scene = document.getElementById("scene");
 const text = document.getElementById("text");
 
-const hearts = ["❤️","💖","💗","💕","💘","💓"];
+const hearts=["❤️","💖","💕","💘"];
 
-btn.addEventListener("click", ()=>{
-    btn.style.display = "none";
+btn.onclick=()=>{
+    btn.style.display="none";
 
-    // move dolls
-    left.classList.add("hug");
-    right.classList.add("hug-right");
+    left.classList.add("move-left");
+    right.classList.add("move-right");
 
-    // after hug
     setTimeout(()=>{
-        left.innerText = "🧸🤍";
-        right.innerText = "";
-    },2200);
+        left.classList.add("hug");
+        right.classList.add("hug");
+    },3000);
 
-    // zoom out
     setTimeout(()=>{
-        scene.classList.add("zoom-out");
-    },2600);
+        scene.style.transform="scale(.85)";
+        scene.style.filter="blur(1.5px)";
+    },3600);
 
-    // show text
     setTimeout(()=>{
         text.classList.add("show");
-        startFireworks();
-    },3500);
-});
-
-function startFireworks(){
-    setInterval(()=>{
-        const fw = document.createElement("div");
-        fw.className = "firework";
-        fw.innerText = hearts[Math.floor(Math.random()*hearts.length)];
-
-        const cx = window.innerWidth/2;
-        const cy = window.innerHeight/2;
-        const angle = Math.random()*Math.PI*2;
-        const dist = 150 + Math.random()*250;
-
-        fw.style.left = cx+"px";
-        fw.style.top = cy+"px";
-        fw.style.setProperty("--x",Math.cos(angle)*dist+"px");
-        fw.style.setProperty("--y",Math.sin(angle)*dist+"px");
-
-        document.body.appendChild(fw);
-        setTimeout(()=>fw.remove(),2000);
-    },300);
-}
+        setInterval(()=>{
+            const f=document.createElement("div");
+            f.className="firework";
+            f.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+            f.style.left="50%";
+            f.style.top="50%";
+            f.style.setProperty("--x",(Math.random()*600-300)+"px");
+            f.style.setProperty("--y",(Math.random()*600-300)+"px");
+            document.body.appendChild(f);
+            setTimeout(()=>f.remove(),2000);
+        },300);
+    },4200);
+};
 </script>
 
 </body>
