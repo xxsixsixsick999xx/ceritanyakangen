@@ -28,85 +28,114 @@ body{
     transition:transform 2s ease, filter 2s ease;
 }
 
-/* LOTSO CARTOON */
+/* LOTSO */
 .lotso{
     position:absolute;
     bottom:80px;
-    width:120px;
-    height:160px;
+    width:140px;
+    height:200px;
     transition:transform 3s ease;
 }
-
-/* BODY */
-.body{
-    width:120px;
-    height:120px;
-    background:#ff77a8;
-    border-radius:60px;
-    position:relative;
-}
+.left{ left:6%; }
+.right{ right:6%; }
 
 /* HEAD */
 .head{
-    width:90px;
-    height:90px;
-    background:#ff77a8;
-    border-radius:50%;
     position:absolute;
-    top:-70px;
-    left:15px;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:100px;
+    height:100px;
+    background:#ff7ab6;
+    border-radius:50%;
 }
 .eye{
+    position:absolute;
+    top:40px;
     width:12px;
     height:12px;
     background:#000;
     border-radius:50%;
-    position:absolute;
-    top:35px;
 }
-.eye.left{ left:22px; }
-.eye.right{ right:22px; }
-.mouth{
-    width:30px;
-    height:12px;
-    border-bottom:4px solid #000;
-    border-radius:50%;
+.eye.left{ left:26px; }
+.eye.right{ right:26px; }
+
+/* NOSE */
+.nose{
     position:absolute;
-    bottom:20px;
+    top:52px;
     left:50%;
     transform:translateX(-50%);
+    width:22px;
+    height:16px;
+    background:#a03b6f;
+    border-radius:50%;
 }
+
+/* BODY */
+.body{
+    position:absolute;
+    top:90px;
+    left:50%;
+    transform:translateX(-50%);
+    width:120px;
+    height:110px;
+    background:#ff7ab6;
+    border-radius:60px;
+}
+.belly{
+    position:absolute;
+    top:22px;
+    left:50%;
+    transform:translateX(-50%);
+    width:70px;
+    height:60px;
+    background:#ffe6ef;
+    border-radius:50%;
+}
+
+/* ARMS */
+.arm{
+    position:absolute;
+    top:20px;
+    width:26px;
+    height:70px;
+    background:#ff7ab6;
+    border-radius:20px;
+    transform-origin:top center;
+    transition:transform 1.5s ease;
+}
+.arm.left{ left:-14px; transform:rotate(20deg); }
+.arm.right{ right:-14px; transform:rotate(-20deg); }
 
 /* LEGS */
 .leg{
-    width:16px;
-    height:40px;
-    background:#ff77a8;
     position:absolute;
-    bottom:-40px;
-    border-radius:10px;
-    animation:walk 0.6s infinite alternate;
+    bottom:-36px;
+    width:18px;
+    height:40px;
+    background:#ff7ab6;
+    border-radius:12px;
+    animation:walk .6s infinite alternate;
 }
-.leg.left{ left:30px; }
-.leg.right{ right:30px; animation-delay:.3s; }
+.leg.left{ left:32px; }
+.leg.right{ right:32px; animation-delay:.3s; }
 
-/* WALK ANIMATION */
+/* WALK */
 @keyframes walk{
     from{ transform:rotate(20deg); }
     to{ transform:rotate(-20deg); }
 }
 
-/* POSITION */
-.left{ left:6%; }
-.right{ right:6%; }
-
-/* MOVE TO HUG */
+/* MOVE */
 .move-left{ transform:translateX(40vw); }
 .move-right{ transform:translateX(-40vw); }
 
-/* HUG */
+/* HUG POSE */
+.hug .arm.left{ transform:rotate(110deg); }
+.hug .arm.right{ transform:rotate(-110deg); }
 .hug .leg{ animation:none; }
-.hug .mouth{ border-bottom:6px solid #000; }
 
 /* BUTTON */
 .btn{
@@ -179,9 +208,12 @@ body{
         <div class="head">
             <div class="eye left"></div>
             <div class="eye right"></div>
-            <div class="mouth"></div>
+            <div class="nose"></div>
         </div>
         <div class="body">
+            <div class="belly"></div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
             <div class="leg left"></div>
             <div class="leg right"></div>
         </div>
@@ -192,9 +224,12 @@ body{
         <div class="head">
             <div class="eye left"></div>
             <div class="eye right"></div>
-            <div class="mouth"></div>
+            <div class="nose"></div>
         </div>
         <div class="body">
+            <div class="belly"></div>
+            <div class="arm left"></div>
+            <div class="arm right"></div>
             <div class="leg left"></div>
             <div class="leg right"></div>
         </div>
