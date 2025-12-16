@@ -9,192 +9,192 @@
 
 <style>
 body{
-    margin:0;
-    height:100vh;
-    overflow:hidden;
-    background:linear-gradient(180deg,#ff3b6f,#ff7a9e);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Poppins',sans-serif;
-    color:white;
+  margin:0;
+  height:100vh;
+  background:linear-gradient(180deg,#ff4f7b,#ff7fa1);
+  overflow:hidden;
+  font-family:'Poppins',sans-serif;
 }
 
 /* SCENE */
 .scene{
-    position:relative;
-    width:100%;
-    height:100%;
-    transition:transform 2s ease, filter 2s ease;
+  position:relative;
+  width:100%;
+  height:100%;
+  transition:transform 2s ease, filter 2s ease;
 }
 
-/* LOTSO */
-.lotso{
-    position:absolute;
-    bottom:80px;
-    width:140px;
-    height:200px;
-    transition:transform 3s ease;
+/* TEDDY */
+.teddy{
+  position:absolute;
+  bottom:90px;
+  width:160px;
+  height:220px;
+  transition:transform 3s ease;
 }
 .left{ left:6%; }
 .right{ right:6%; }
 
 /* HEAD */
 .head{
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:100px;
-    height:100px;
-    background:#ff7ab6;
-    border-radius:50%;
+  width:120px;
+  height:120px;
+  background:#ff8fc1;
+  border-radius:50%;
+  margin:0 auto;
+  position:relative;
 }
+.ear{
+  width:40px;
+  height:40px;
+  background:#ff8fc1;
+  border-radius:50%;
+  position:absolute;
+  top:-10px;
+}
+.ear.left{ left:-10px; }
+.ear.right{ right:-10px; }
 .eye{
-    position:absolute;
-    top:40px;
-    width:12px;
-    height:12px;
-    background:#000;
-    border-radius:50%;
+  width:12px;
+  height:12px;
+  background:#000;
+  border-radius:50%;
+  position:absolute;
+  top:45px;
 }
-.eye.left{ left:26px; }
-.eye.right{ right:26px; }
-
-/* NOSE */
+.eye.left{ left:38px; }
+.eye.right{ right:38px; }
 .nose{
-    position:absolute;
-    top:52px;
-    left:50%;
-    transform:translateX(-50%);
-    width:22px;
-    height:16px;
-    background:#a03b6f;
-    border-radius:50%;
+  width:20px;
+  height:14px;
+  background:#b0467c;
+  border-radius:50%;
+  position:absolute;
+  top:62px;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 /* BODY */
 .body{
-    position:absolute;
-    top:90px;
-    left:50%;
-    transform:translateX(-50%);
-    width:120px;
-    height:110px;
-    background:#ff7ab6;
-    border-radius:60px;
+  width:140px;
+  height:120px;
+  background:#ff8fc1;
+  border-radius:70px;
+  margin:-10px auto 0;
+  position:relative;
 }
 .belly{
-    position:absolute;
-    top:22px;
-    left:50%;
-    transform:translateX(-50%);
-    width:70px;
-    height:60px;
-    background:#ffe6ef;
-    border-radius:50%;
+  width:70px;
+  height:60px;
+  background:#ffe9f2;
+  border-radius:50%;
+  position:absolute;
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
 }
 
 /* ARMS */
 .arm{
-    position:absolute;
-    top:20px;
-    width:26px;
-    height:70px;
-    background:#ff7ab6;
-    border-radius:20px;
-    transform-origin:top center;
-    transition:transform 1.5s ease;
+  width:26px;
+  height:80px;
+  background:#ff8fc1;
+  border-radius:20px;
+  position:absolute;
+  top:10px;
+  transform-origin:top center;
+  transition:transform 1.5s ease;
 }
-.arm.left{ left:-14px; transform:rotate(20deg); }
-.arm.right{ right:-14px; transform:rotate(-20deg); }
+.arm.left{ left:-18px; transform:rotate(20deg); }
+.arm.right{ right:-18px; transform:rotate(-20deg); }
 
 /* LEGS */
 .leg{
-    position:absolute;
-    bottom:-36px;
-    width:18px;
-    height:40px;
-    background:#ff7ab6;
-    border-radius:12px;
-    animation:walk .6s infinite alternate;
+  width:20px;
+  height:50px;
+  background:#ff8fc1;
+  border-radius:14px;
+  position:absolute;
+  bottom:-48px;
+  animation:walk .6s infinite alternate;
 }
-.leg.left{ left:32px; }
-.leg.right{ right:32px; animation-delay:.3s; }
+.leg.left{ left:44px; }
+.leg.right{ right:44px; animation-delay:.3s; }
 
-/* WALK */
 @keyframes walk{
-    from{ transform:rotate(20deg); }
-    to{ transform:rotate(-20deg); }
+  from{ transform:rotate(15deg); }
+  to{ transform:rotate(-15deg); }
 }
 
 /* MOVE */
-.move-left{ transform:translateX(40vw); }
-.move-right{ transform:translateX(-40vw); }
+.move-left{ transform:translateX(38vw); }
+.move-right{ transform:translateX(-38vw); }
 
-/* HUG POSE */
-.hug .arm.left{ transform:rotate(110deg); }
-.hug .arm.right{ transform:rotate(-110deg); }
+/* HUG */
+.hug .arm.left{ transform:rotate(120deg); }
+.hug .arm.right{ transform:rotate(-120deg); }
 .hug .leg{ animation:none; }
 
 /* BUTTON */
 .btn{
-    position:absolute;
-    bottom:260px;
-    left:50%;
-    transform:translateX(-50%);
-    padding:14px 40px;
-    background:white;
-    color:#ff3b6f;
-    border-radius:30px;
-    font-weight:900;
-    cursor:pointer;
+  position:absolute;
+  bottom:260px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:14px 42px;
+  background:#fff;
+  color:#ff3b6f;
+  border-radius:30px;
+  font-weight:900;
+  cursor:pointer;
 }
 
 /* TEXT */
 .text{
-    position:absolute;
-    top:18%;
-    width:100%;
-    text-align:center;
-    opacity:0;
-    transform:translateY(20px);
-    transition:1.5s;
+  position:absolute;
+  top:18%;
+  width:100%;
+  text-align:center;
+  opacity:0;
+  transform:translateY(20px);
+  transition:1.5s;
 }
 .text.show{
-    opacity:1;
-    transform:translateY(0);
+  opacity:1;
+  transform:translateY(0);
 }
 .big{
-    font-size:48px;
-    font-weight:900;
+  font-size:48px;
+  font-weight:900;
 }
 .small{
-    font-family:'Dancing Script',cursive;
-    font-size:22px;
+  font-family:'Dancing Script',cursive;
+  font-size:22px;
 }
 
 /* FIREWORK */
 .firework{
-    position:fixed;
-    font-size:24px;
-    animation:explode 2s ease-out forwards;
-    pointer-events:none;
+  position:fixed;
+  font-size:26px;
+  pointer-events:none;
+  animation:explode 2s ease-out forwards;
 }
 @keyframes explode{
-    from{opacity:1;}
-    to{
-        transform:translate(var(--x),var(--y)) scale(1.8);
-        opacity:0;
-    }
+  from{opacity:1;}
+  to{
+    transform:translate(var(--x),var(--y)) scale(1.8);
+    opacity:0;
+  }
 }
 
 /* CREDIT */
 .credit{
-    position:fixed;
-    bottom:12px;
-    font-size:12px;
-    opacity:.6;
+  position:fixed;
+  bottom:12px;
+  font-size:12px;
+  opacity:.6;
+  color:white;
 }
 </style>
 </head>
@@ -203,47 +203,53 @@ body{
 
 <div class="scene" id="scene">
 
-    <!-- LOTSO LEFT -->
-    <div class="lotso left" id="left">
-        <div class="head">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
-            <div class="nose"></div>
-        </div>
-        <div class="body">
-            <div class="belly"></div>
-            <div class="arm left"></div>
-            <div class="arm right"></div>
-            <div class="leg left"></div>
-            <div class="leg right"></div>
-        </div>
+  <!-- LEFT TEDDY -->
+  <div class="teddy left" id="left">
+    <div class="head">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
     </div>
-
-    <!-- LOTSO RIGHT -->
-    <div class="lotso right" id="right">
-        <div class="head">
-            <div class="eye left"></div>
-            <div class="eye right"></div>
-            <div class="nose"></div>
-        </div>
-        <div class="body">
-            <div class="belly"></div>
-            <div class="arm left"></div>
-            <div class="arm right"></div>
-            <div class="leg left"></div>
-            <div class="leg right"></div>
-        </div>
+    <div class="body">
+      <div class="belly"></div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
     </div>
+  </div>
 
-    <div class="btn" id="btn">CLICK</div>
-
-    <div class="text" id="text">
-        <div class="big">MISS U SO MUCH ❤️</div>
-        <div class="small">syifa rahmadani</div>
+  <!-- RIGHT TEDDY -->
+  <div class="teddy right" id="right">
+    <div class="head">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
     </div>
+    <div class="body">
+      <div class="belly"></div>
+      <div class="arm left"></div>
+      <div class="arm right"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+    </div>
+  </div>
+
+  <div class="btn" id="btn">CLICK</div>
+
+  <div class="text" id="text">
+    <div class="big">MISS U SO MUCH ❤️</div>
+    <div class="small">syifa rahmadani</div>
+  </div>
 </div>
 
 <div class="credit">Dev by Tuan Muda R</div>
+
+<audio id="music" src="friend-in-me.mp3"></audio>
 
 <script>
 const btn = document.getElementById("btn");
@@ -251,40 +257,45 @@ const left = document.getElementById("left");
 const right = document.getElementById("right");
 const scene = document.getElementById("scene");
 const text = document.getElementById("text");
+const music = document.getElementById("music");
 
 const hearts=["❤️","💖","💕","💘"];
 
-btn.onclick=()=>{
-    btn.style.display="none";
+btn.addEventListener("click",()=>{
+  // PLAY MUSIC (PASTI JALAN)
+  music.currentTime = 0;
+  music.play().catch(()=>{});
 
-    left.classList.add("move-left");
-    right.classList.add("move-right");
+  btn.style.display="none";
 
-    setTimeout(()=>{
-        left.classList.add("hug");
-        right.classList.add("hug");
-    },3000);
+  left.classList.add("move-left");
+  right.classList.add("move-right");
 
-    setTimeout(()=>{
-        scene.style.transform="scale(.85)";
-        scene.style.filter="blur(1.5px)";
-    },3600);
+  setTimeout(()=>{
+    left.classList.add("hug");
+    right.classList.add("hug");
+  },3000);
 
-    setTimeout(()=>{
-        text.classList.add("show");
-        setInterval(()=>{
-            const f=document.createElement("div");
-            f.className="firework";
-            f.innerText=hearts[Math.floor(Math.random()*hearts.length)];
-            f.style.left="50%";
-            f.style.top="50%";
-            f.style.setProperty("--x",(Math.random()*600-300)+"px");
-            f.style.setProperty("--y",(Math.random()*600-300)+"px");
-            document.body.appendChild(f);
-            setTimeout(()=>f.remove(),2000);
-        },300);
-    },4200);
-};
+  setTimeout(()=>{
+    scene.style.transform="scale(.85)";
+    scene.style.filter="blur(1.5px)";
+  },3600);
+
+  setTimeout(()=>{
+    text.classList.add("show");
+    setInterval(()=>{
+      const f=document.createElement("div");
+      f.className="firework";
+      f.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+      f.style.left="50%";
+      f.style.top="50%";
+      f.style.setProperty("--x",(Math.random()*700-350)+"px");
+      f.style.setProperty("--y",(Math.random()*700-350)+"px");
+      document.body.appendChild(f);
+      setTimeout(()=>f.remove(),2000);
+    },260);
+  },4200);
+});
 </script>
 
 </body>
